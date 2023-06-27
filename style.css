@@ -1,3 +1,48 @@
-p {
-    color:green;
+body{
+    background-color: rgb(44, 134, 82);
+}
+
+.text{
+    text-align: center;
+    color: white;
+}
+
+.MainContainer{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.GameFrame{
+    padding: 10px;
+    background-color: white;
+    width: 575px;
+    height: 575px;
+    border-radius: 10px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 185px 185px 185px;
+}
+
+.buttons{
+    background-color: rgb(61, 229, 229);
+    border-radius: 10px;
+    width: 185px;
+    height: 185px;
+}
+
+.buttons:hover{
+    cursor: pointer;
+    background-color: rgb(59, 208, 208);
+}
+
+#MadeBy, a{
+    margin-top: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
