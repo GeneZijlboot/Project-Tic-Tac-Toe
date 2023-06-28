@@ -17,10 +17,11 @@ body{
 
 
 .GameFrame{
+    opacity: 100%;
     padding: 10px;
     background-color: white;
     width: 575px;
-    height: 575px;
+    height: 575px;  
     border-radius: 10px;
     display: grid;
     grid-gap: 10px;
@@ -29,14 +30,23 @@ body{
 
 .buttons{
     background-color: rgb(61, 229, 229);
+    color:black;
+    font-size: 150px;
     border-radius: 10px;
-    width: 185px;
+    min-width: 185px;
     height: 185px;
+    text-align: center;
 }
 
 .buttons:hover{
     cursor: pointer;
     background-color: rgb(59, 208, 208);
+}
+
+.player{
+    color:white;
+    font-size: 25px;
+    padding-bottom: 10px;
 }
 
 #MadeBy, a{
