@@ -7,6 +7,28 @@ body{
     color: white;
 }
 
+.flexmebaby{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    margin-right: 40px;
+}
+
+.ClearBtn{
+    background-color: rgb(59, 196, 196);
+    color: white;
+    border: 1px solid white;
+    font-size: 20px;
+    border-radius: 25px;
+    height: 60px;
+    width: 150px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.ClearBtn:hover{
+    background-color: rgb(59, 208, 208);
+}
+
 .MainContainer{
     position: absolute;
     top: 40%;
@@ -29,7 +51,7 @@ body{
 }
 
 .buttons{
-    background-color: rgb(61, 229, 229);
+    background-color: rgb(59, 196, 196);
     color:black;
     font-size: 150px;
     border-radius: 10px;
