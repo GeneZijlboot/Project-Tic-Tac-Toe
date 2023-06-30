@@ -51,10 +51,12 @@ body{
 }
 
 .Tiles{
+    font-family: ser;
     background-color: rgb(59, 196, 196);
     color:black;
     font-size: 150px;
     border-radius: 10px;
+    border: 1px solid rgb(59, 196, 196);
     min-width: 185px;
     height: 185px;
     text-align: center;

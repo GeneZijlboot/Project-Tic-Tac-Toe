@@ -29,6 +29,7 @@ AllTiles.forEach((SpecificTile) => SpecificTile.addEventListener('click', functi
         console.log('PlayerTurnTwo = ' + PlayerTurnTwo);
         marks.push(SpecificTile.textContent = Player1.marker);
         SwapPlayer.textContent = "Player 2";
+        SpecificTile.disabled = true;
 
     } else if( PlayerTurnOne === false || PlayerTurnTwo === true){
         PlayerTurnOne = true;
@@ -37,7 +38,10 @@ AllTiles.forEach((SpecificTile) => SpecificTile.addEventListener('click', functi
         console.log('PlayerTurnTwo = ' + PlayerTurnTwo);
         marks.push(SpecificTile.textContent = Player2.marker);
         SwapPlayer.textContent = "Player 1";
+        SpecificTile.disabled = true;
     }
+
+    
 }))
 
 //Clears Playeing Field
