@@ -30,6 +30,9 @@ AllTiles.forEach((SpecificTile) => SpecificTile.addEventListener('click', functi
         marks.push(SpecificTile.textContent = Player1.marker);
         SwapPlayer.textContent = "Player 2";
         SpecificTile.disabled = true;
+        ClearBtn.addEventListener('click', () => {
+            SpecificTile.disabled = false;
+        })
 
     } else if( PlayerTurnOne === false || PlayerTurnTwo === true){
         PlayerTurnOne = true;
@@ -39,6 +42,9 @@ AllTiles.forEach((SpecificTile) => SpecificTile.addEventListener('click', functi
         marks.push(SpecificTile.textContent = Player2.marker);
         SwapPlayer.textContent = "Player 1";
         SpecificTile.disabled = true;
+        ClearBtn.addEventListener('click', () => {
+            SpecificTile.disabled = false;
+        })
     }
 
     
@@ -53,4 +59,5 @@ ClearBtn.addEventListener('click', () => {
     SwapPlayer.textContent = "Player 1";
     PlayerTurnOne = true;
     PlayerTurnTwo = false;
+    AllTiles.disabled = false;
 })
