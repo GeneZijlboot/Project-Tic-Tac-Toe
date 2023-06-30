@@ -50,7 +50,7 @@ body{
     grid-template-columns: 185px 185px 185px;
 }
 
-.buttons{
+.Tiles{
     background-color: rgb(59, 196, 196);
     color:black;
     font-size: 150px;
@@ -60,12 +60,12 @@ body{
     text-align: center;
 }
 
-.buttons:hover{
+.Tiles:hover{
     cursor: pointer;
     background-color: rgb(59, 208, 208);
 }
 
-.player{
+.Player{
     color:white;
     font-size: 25px;
     padding-bottom: 10px;
