@@ -61,3 +61,14 @@ ClearBtn.addEventListener('click', () => {
     PlayerTurnTwo = false;
     AllTiles.disabled = false;
 })
+
+function GameBaord(){
+    marks.forEach((cell, index) => {
+        const CellElement = document.createElement('div');
+        CellElement.classList.add('Tiles');
+        CellElement.id = index; //this is what you needed you prick!
+        GameFrame.appendChild(CellElement);
+    })
+}
+
+GameBaord();
