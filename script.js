@@ -2,6 +2,7 @@
 const AllTiles = document.querySelectorAll('.Tiles');
 const CurrentPlayer = document.querySelector('.SwapPlayer');
 const ClearBtn = document.querySelector('.ClearBtn');
+const Wintxt = document.querySelector('.Player')
 
 let marks = ["", "", "", "", "", "", "", "", ""];
 const winConditions = [
@@ -21,9 +22,7 @@ const Players = (name, marker) => {
 }
 const Player1 = Players('Player 1', 'X');
 const Player2 = Players('Player 2', 'O');
-
-let PlayerTurnOne = true;
-let PlayerTurnTwo = false;
+let player = Player1.name;
 
 //when clicking a specific tile --> swap the players and put player.mark down
 const CellClicked = (() => {
@@ -34,6 +33,7 @@ const CellClicked = (() => {
             SpecificTile.disabled = false;
         })  
     }));
+    CheckWinner();
 })();
 
 //Renders evrything in the Array to the Dom
@@ -46,31 +46,20 @@ function Render(){
 //Swaps the player.name and player.marker
 function SwapPlayer(){
     const TileIndex = this.getAttribute("TileIndex");
-    if(PlayerTurnOne === true || PlayerTurnTwo === false){
-        PlayerTurnOne = false;
-        PlayerTurnTwo = true;
-
+    if(player == Player1.name){
+        player = Player2.name
         marks[TileIndex] = Player1.marker;
         CurrentPlayer.textContent = Player2.name;
-
         Render();
-        Checkwinner();
+        CheckWinner();
 
-    }else if(PlayerTurnOne === false || PlayerTurnTwo === true){
-        PlayerTurnOne = true;
-        PlayerTurnTwo = false;
-
+    }else if(player == Player2.name){
+        player = Player1.name
         marks[TileIndex] = Player2.marker;
         CurrentPlayer.textContent = Player1.name;
-
         Render();
-        Checkwinner();
+        CheckWinner();
     }
-}
-
-//Checks who Wins
-function Checkwinner(){
-
 }
 
 //Restart button
@@ -78,8 +67,31 @@ const ClearField = (() => {
     ClearBtn.addEventListener('click', () => {
         marks = ["", "", "", "", "", "", "", "", ""];
         AllTiles.forEach((SpecificTile) => SpecificTile.textContent = "");
-        CurrentPlayer.textContent = Player1.name;
+        Wintxt.textContent = `${Player1.name}, make your move.`;
         PlayerTurnOne = true;
         PlayerTurnTwo = false;
     })
 })();
+
+//Checks who Wins
+function CheckWinner(){
+
+    for(let i = 0; i < winConditions.length; i++){
+        const condition = winConditions[i];
+        const cellA = marks[condition[0]];
+        const cellB = marks[condition[1]];
+        const cellC = marks[condition[2]];
+
+        if(cellA == "" || cellB == "" || cellC == ""){
+            continue;
+        }
+        if(cellA == cellB && cellB == cellC){
+            Wintxt.textContent = `${player} wins!`;
+            break;
+        }
+    }
+
+    if(!marks.includes("")){
+        CurrentPlayer.textContent = `Draw!`;
+    }
+}
