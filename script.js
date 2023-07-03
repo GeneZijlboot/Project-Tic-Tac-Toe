@@ -1,5 +1,5 @@
 //the array for the game itself
-const marks = [];
+let marks = ["", "", "", "", "", "", "", "", ""];
 let PlayerTurnOne = true;
 let PlayerTurnTwo = false;
 //factory function for player1 and player2
@@ -22,26 +22,42 @@ function Render(){
 }
 
 AllTiles.forEach((SpecificTile) => SpecificTile.addEventListener('click', function() {
+    const TileIndex = this.getAttribute("TileIndex");
+    //deciding whos turn it is, and switch it after clicking
     if(PlayerTurnOne === true || PlayerTurnTwo === false){
         PlayerTurnOne = false;
         PlayerTurnTwo = true;
-        console.log('PlayerTurnOne = ' + PlayerTurnOne);
-        console.log('PlayerTurnTwo = ' + PlayerTurnTwo);
-        marks.push(SpecificTile.textContent = Player1.marker);
+
+        marks[TileIndex] = Player1.marker;
+        console.log(marks);
+        Render();
+
+        //swap players visuals
         SwapPlayer.textContent = "Player 2";
+
+        //disable tile after clicking
         SpecificTile.disabled = true;
+
+        //after clicking clear button, tiles are available again
         ClearBtn.addEventListener('click', () => {
             SpecificTile.disabled = false;
         })
-
+    //deciding whos turn it is, and switch it after clicking
     } else if( PlayerTurnOne === false || PlayerTurnTwo === true){
         PlayerTurnOne = true;
         PlayerTurnTwo = false;
-        console.log('PlayerTurnOne = ' + PlayerTurnOne);
-        console.log('PlayerTurnTwo = ' + PlayerTurnTwo);
-        marks.push(SpecificTile.textContent = Player2.marker);
+
+        marks[TileIndex] = Player2.marker;
+        console.log(marks);
+        Render();
+
+        //swap players visuals
         SwapPlayer.textContent = "Player 1";
+
+        //disable tile after clicking
         SpecificTile.disabled = true;
+
+        //after clicking clear button, tiles are available again
         ClearBtn.addEventListener('click', () => {
             SpecificTile.disabled = false;
         })
@@ -61,14 +77,3 @@ ClearBtn.addEventListener('click', () => {
     PlayerTurnTwo = false;
     AllTiles.disabled = false;
 })
-
-function GameBaord(){
-    marks.forEach((cell, index) => {
-        const CellElement = document.createElement('div');
-        CellElement.classList.add('Tiles');
-        CellElement.id = index; //this is what you needed you prick!
-        GameFrame.appendChild(CellElement);
-    })
-}
-
-GameBaord();
