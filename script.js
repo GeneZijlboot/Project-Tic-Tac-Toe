@@ -65,6 +65,7 @@ function SwapPlayer(){
 //Restart button
 const ClearField = (() => {
     ClearBtn.addEventListener('click', () => {
+        AllTiles.forEach((SpecificTile) => SpecificTile.disabled = false);
         marks = ["", "", "", "", "", "", "", "", ""];
         AllTiles.forEach((SpecificTile) => SpecificTile.textContent = "");
         Wintxt.textContent = `${Player1.name}, make your move.`;
@@ -74,8 +75,7 @@ const ClearField = (() => {
 })();
 
 //Checks who Wins
-function CheckWinner(){
-
+function CheckWinner(e){
     for(let i = 0; i < winConditions.length; i++){
         const condition = winConditions[i];
         const cellA = marks[condition[0]];
@@ -86,12 +86,14 @@ function CheckWinner(){
             continue;
         }
         if(cellA == cellB && cellB == cellC){
+            AllTiles.forEach((SpecificTile) => SpecificTile.disabled = true);
+            player = player == Player2.name ? Player1.name : Player2.name;
             Wintxt.textContent = `${player} wins!`;
             break;
         }
     }
 
     if(!marks.includes("")){
-        CurrentPlayer.textContent = `Draw!`;
+        Wintxt.textContent = `Draw!`;
     }
 }
