@@ -115,6 +115,7 @@ body{
     .GameFrame{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         padding: 10px;
         background-color: white;
         max-width: 250px;
@@ -130,7 +131,7 @@ body{
         border-radius: 10px;
         border: 1px solid rgb(59, 196, 196);
         max-height: 75px;
-        min-width: 70px;
+        min-width: 30px;
     }
 
     .Tiles:hover{
