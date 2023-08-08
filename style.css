@@ -52,7 +52,7 @@ body{
     border-radius: 10px;
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 185px 185px 185px;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .Tiles{
@@ -62,8 +62,6 @@ body{
     font-size: 150px;
     border-radius: 10px;
     border: 1px solid rgb(59, 196, 196);
-    min-width: 185px;
-    height: 185px;
     text-align: center;
 }
 
@@ -121,7 +119,7 @@ body{
         border-radius: 10px;
         display: grid;
         grid-gap: 10px;
-        grid-template-columns: 90px 90px 90px;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     .Tiles{
@@ -131,8 +129,6 @@ body{
         font-size: 80px;
         border-radius: 10px;
         border: 1px solid rgb(59, 196, 196);
-        min-width: 50px;
-        max-height: 90px;
         text-align: center
     }
 
