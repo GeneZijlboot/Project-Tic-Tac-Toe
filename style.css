@@ -87,7 +87,7 @@ body{
 }
 
 /*mobile screen styling*/
-@media (max-width: 500px){
+@media (max-width: 600px){
     .MainTextTitle{
         margin-bottom: 10px;
         color:white;
@@ -133,7 +133,7 @@ body{
         border: 1px solid rgb(59, 196, 196);
         min-width: 50px;
         max-height: 90px;
-        text-align: center;
+        text-align: center
     }
 
     .Tiles:hover{
